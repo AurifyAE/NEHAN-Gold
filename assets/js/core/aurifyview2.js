@@ -395,10 +395,20 @@ async function showTable() {
             const sellPremiumInputAED = data.data.sellPremiumAED;
             const buyPremiumInputAED = data.data.buyPremiumAED;
 
+            let metal;
+            if(weightInput === 'KG'){
+                metal ='Kilobar'    
+            }else if(weightInput === 'TTB'){
+                metal ='TT Bar'
+            }
+            else{
+                metal = metalInput
+            }
+
             // Create a new table row for data
             const newRow = document.createElement("tr");
             newRow.innerHTML = `
-                <td style="text-align: right;">${metalInput}</td>
+                <td style="text-align: right;">${metal}</td>
                 <td style="text-align: left; font-size:28px; font-weight: 600;">${purityInput}</td>
                 <td>${unitInput} ${weightInput}</td>
                 <td id="buyAED">0</td>
